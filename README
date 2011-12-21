@@ -1,0 +1,4 @@
+Northwestern University provides a directory at http://directory.northwestern.edu/
+
+This simple sinatra + nokogiri app provides a JSON API for accessing a Northwestern
+Unversity student's name, phone number, email address, and address given their NetID.
