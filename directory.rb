@@ -33,19 +33,35 @@ class DirectoryEntry
   end
 
   def get_name
-    @name = @html.css("table[width='600'] td[bgcolor='#CCCCCC']").first.css('b').text
+    begin
+      @name = @html.css("table[width='600'] td[bgcolor='#CCCCCC']").first.css('b').text
+    rescue
+      @name = ""
+    end
   end
 
   def get_email
-    @email = @html.css("table[width='600'] td[bgcolor='#CCCCCC']").first.css("a[href]").last.text
+    begin
+      @email = @html.css("table[width='600'] td[bgcolor='#CCCCCC']").first.css("a[href]").last.text
+    rescue
+      @email = ""
+    end
   end
 
   def get_phone
-    @phone = @html.css("table[width='600'] td[bgcolor='#CCCCCC']")[1].text.chomp
+    begin
+      @phone = @html.css("table[width='600'] td[bgcolor='#CCCCCC']")[1].text.chomp
+    rescue
+      @phone = ""
+    end
   end
 
   def get_address
-    @address = @html.css("table[width='600'] td[bgcolor='#CCCCCC']")[2].text.chomp
+    begin
+      @address = @html.css("table[width='600'] td[bgcolor='#CCCCCC']")[2].text.chomp
+    rescue
+      @address = ""
+    end
   end
 
   def json
