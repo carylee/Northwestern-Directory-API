@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'open-uri'
 require 'nokogiri'
 require 'sinatra'
@@ -39,7 +40,7 @@ class DirectoryEntry
   end
 
   def get_address
-    @address = @html.css("table[width='600'] td[bgcolor='#CCCCCC']")[2].text
+    @address = @html.css("table[width='600'] td[bgcolor='#CCCCCC']")[2].text.chomp
   end
 
   def json
