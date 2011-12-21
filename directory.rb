@@ -19,10 +19,11 @@ end
 class DirectoryEntry
   attr_accessor :name, :email, :address, :phone
   def initialize
-    @baseurl = "http://cs.northwestern.edu/~cel294/netid.php?netid="
+    @baseurl = ENV['NUDIR'].nil? ? "http://directory.northwestern.edu/?a=1&netid=" : ENV['NUDIR']
   end
 
   def load netid
+    puts @baseurl
     @html = Nokogiri::HTML(open(@baseurl + netid))
     @table = @html.css("table[width='600'] td[bgcolor='#CCCCCC']")
     get_name
