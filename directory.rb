@@ -4,6 +4,10 @@ require 'nokogiri'
 require 'sinatra'
 require 'json'
 
+get '/' do
+  "<h1>Northwestern Directory API</h1>
+   <p>Make a GET request to http://northwesterndirectory.heroku.com/&lt;NETID&gt;</p>"
+end
 
 get '/:netid' do
   content_type :json
